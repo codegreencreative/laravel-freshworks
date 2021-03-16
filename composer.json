@@ -1,0 +1,44 @@
+{
+    "name": "codegreencreative/laravel-freshworks",
+    "description": "",
+    "keywords": ["laravel", "freshworks", "freshsales", "crm", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jesse Vista",
+            "email": "jesse@codegreencreative.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "^6|^7|^8",
+        "guzzlehttp/guzzle": "^6.3.1|^7.0.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^8.5|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeGreenCreative\\Freshworks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeGreenCreative\\Freshworks\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "CodeGreenCreative\\Freshworks\\FreshworksServiceProvider"
+            ],
+            "aliases": {
+                "Freshworks": "CodeGreenCreative\\Freshworks\\FreshworksFacade"
+            }
+        }
+    }
+}

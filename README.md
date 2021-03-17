@@ -1,4 +1,4 @@
-# Laravel Freshworks CRM API Wrapperd
+# Laravel Freshworks CRM API Wrapper
 
 This Laravel package will allow you to connect to Freshworks CRM API using a Laravel like syntax.
 

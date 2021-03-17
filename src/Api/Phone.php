@@ -2,7 +2,6 @@
 
 namespace CodeGreenCreative\Freshworks\Api;
 
-use Psr\Http\Message\ResponseInterface;
 use CodeGreenCreative\Freshworks\Client;
 
 class Phone extends Client
@@ -14,8 +13,8 @@ class Phone extends Client
      * @param  array  $query [description]
      * @return [type]        [description]
      */
-    public function log(array $parameters = []): ResponseInterface
+    public function log(array $parameters = []): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('GET', '{$this->resource}', ['body' => json_encode($parameters)]);
+        return $this->request('POST', $this->resource, ['body' => json_encode($parameters)]);
     }
 }

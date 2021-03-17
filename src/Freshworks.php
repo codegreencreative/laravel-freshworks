@@ -2,7 +2,6 @@
 
 namespace CodeGreenCreative\Freshworks;
 
-use CodeGreenCreative\Freshworks\Exceptions\FreshworksException;
 use Illuminate\Support\Str;
 
 class Freshworks
@@ -21,7 +20,7 @@ class Freshworks
                 return new $name;
             }
         } catch (\Exception $e) {
-            throw new FreshworksException($e->getMessage(), 1);
+            throw new Exceptions\FreshworksException($e->getMessage(), 1);
         }
     }
 }

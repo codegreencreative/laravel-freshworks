@@ -2,7 +2,6 @@
 
 namespace CodeGreenCreative\Freshworks\Api;
 
-use Psr\Http\Message\ResponseInterface;
 use CodeGreenCreative\Freshworks\Client;
 
 class Search extends Client
@@ -14,8 +13,8 @@ class Search extends Client
      * @param  array  $query [description]
      * @return [type]        [description]
      */
-    public function lookup(array $query = []): ResponseInterface
+    public function lookup(array $query = []): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('GET', '{$this->resource}', ['query' => $query]);
+        return $this->request('GET', $this->resource, ['query' => $query]);
     }
 }

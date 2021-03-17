@@ -15,7 +15,7 @@ class FreshworksServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): Void
     {
         $this->publishes([
             __DIR__.'/../config/freshworks.php' => config_path('freshworks.php'),
@@ -27,7 +27,7 @@ class FreshworksServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): Void
     {
         $this->app->bind('freshworks', function($app) {
             return new Freshworks;

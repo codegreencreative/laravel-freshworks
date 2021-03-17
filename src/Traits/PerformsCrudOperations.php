@@ -2,27 +2,25 @@
 
 namespace CodeGreenCreative\Freshworks\Traits;
 
-use Psr\Http\Message\ResponseInterface;
-
 trait PerformsCrudOperations
 {
-    public function create(array $payload): ResponseInterface
+    public function create(array $payload): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('POST', $this->resource, ['body' => json_encode($payload)]);
+        return $this->go('POST', $this->resource, ['body' => json_encode($payload)]);
     }
 
-    public function read(int $id, array $query = []): ResponseInterface
+    public function find(int $id, array $query = []): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('GET', '{$this->resource}/{$id}', ['query' => $query]);
+        return $this->go('GET', "{$this->resource}/{$id}", ['query' => $query]);
     }
 
-    public function update(int $id, array $payload): ResponseInterface
+    public function update(int $id, array $payload): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('PUT', '{$this->resource}/{$id}', ['body' => json_encode($payload)]);
+        return $this->go('PUT', "{$this->resource}/{$id}", ['body' => json_encode($payload)]);
     }
 
-    public function delete(int $id): ResponseInterface
+    public function destroy(int $id): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('DELETE', '{$this->resource}/{$id}');
+        return $this->go('DELETE', "{$this->resource}/{$id}");
     }
 }

@@ -2,12 +2,10 @@
 
 namespace CodeGreenCreative\Freshworks\Traits;
 
-use Psr\Http\Message\ResponseInterface;
-
 trait CanCloneItself
 {
-    public function clone(int $id): ResponseInterface
+    public function clone(int $id): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('POST', '{$this->resource}/{$id}/clone');
+        return $this->go('POST', "{$this->resource}/{$id}/clone");
     }
 }

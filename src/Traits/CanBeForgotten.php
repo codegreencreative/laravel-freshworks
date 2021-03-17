@@ -2,12 +2,10 @@
 
 namespace CodeGreenCreative\Freshworks\Traits;
 
-use Psr\Http\Message\ResponseInterface;
-
 trait CanBeForgotten
 {
-    public function forget(int $id): ResponseInterface
+    public function forget(int $id): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('DELETE', '{$this->resource}/{$id}/forget');
+        return $this->go('DELETE', "{$this->resource}/{$id}/forget");
     }
 }

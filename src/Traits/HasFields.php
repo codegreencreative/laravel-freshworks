@@ -2,12 +2,10 @@
 
 namespace CodeGreenCreative\Freshworks\Traits;
 
-use Psr\Http\Message\ResponseInterface;
-
 trait HasFields
 {
-    public function fields(): ResponseInterface
+    public function fields(): \CodeGreenCreative\Freshworks\Client
     {
-        return $this->client->request('GET', 'settings/{$this->resource}/fields');
+        return $this->go('GET', "settings/{$this->resource}/fields");
     }
 }

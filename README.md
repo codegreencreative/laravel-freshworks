@@ -52,12 +52,12 @@ See [Freshworks CRM API](https://developers.freshworks.com/crm/api) documentatio
 
 ## API endpoints added
 
-- Contacts
-- Accounts
-- Deals
-- Notes
-- Tasks
-- Appointments
-- Sales Activities
-- Search
-- Phone
+- [Contacts](https://developers.freshworks.com/crm/api/#contacts)
+- [Accounts](https://developers.freshworks.com/crm/api/#accounts)
+- [Deals](https://developers.freshworks.com/crm/api/#deals)
+- [Notes](https://developers.freshworks.com/crm/api/#notes)
+- [Tasks](https://developers.freshworks.com/crm/api/#tasks)
+- [Appointments](https://developers.freshworks.com/crm/api/#appointments)
+- [Sales Activities](https://developers.freshworks.com/crm/api/#sales-activities)
+- [Search](https://developers.freshworks.com/crm/api/#search)
+- [Phone](https://developers.freshworks.com/crm/api/#phone)

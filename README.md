@@ -49,3 +49,15 @@ $views = \Freshworks::contacts()->filters()->toObject();
 ```
 
 See [Freshworks CRM API](https://developers.freshworks.com/crm/api) documentation for details on what can be done with their API.
+
+## API endpoints added
+
+- Contacts
+- Accounts
+- Deals
+- Notes
+- Tasks
+- Appointments
+- Sales Activities
+- Search
+- Phone

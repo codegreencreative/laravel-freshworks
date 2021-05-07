@@ -11,15 +11,18 @@ class Client extends \GuzzleHttp\Client
     /**
      * Set up Guzzle client
      */
-    public function __construct()
+    public function __construct($type = 'api')
     {
+        $headers = [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ];
+        if ($type == 'api') {
+            $headers['Authorization'] = "Token token=" . config('freshworks.api_key');
+        }
         parent::__construct([
-            'base_uri' => sprintf('https://%s.myfreshworks.com/crm/sales/api/', config('freshworks.domain')),
-            'headers' => [
-                'Authorization' => "Token token=" . config('freshworks.api_key'),
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-            ],
+            'base_uri' => sprintf('https://%s.myfreshworks.com/crm/sales/%s/', config('freshworks.domain'), $type),
+            'headers' => $headers
         ]);
     }
 

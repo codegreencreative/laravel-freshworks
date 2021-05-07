@@ -22,6 +22,7 @@ Add your Freshworks API key and domain. Your domain will be the subdomain you ch
 
 ```
 FRESHWORKS_API_KEY=
+FRESHWORKS_APP_TOKEN=
 FRESHWORKS_DOMAIN=
 ```
 
@@ -46,6 +47,33 @@ $views = \Freshworks::contacts()->filters()->toObject();
 
 // List all contacts using a view
 \Freshworks::contacts()->all($view_id)->toObject()
+
+// Tracking
+// Create a new contact
+\Freshworks::track()->identify([
+   'identifier' => 'john.doe@example.com', //Replace with unique identifier
+   'First name' => 'Johnny', //Replace with first name of the user
+   'Last name' => 'Doe', //Replace with last name of the user
+   'Email' => 'john.doe@example.com', //Replace with email of the user
+   'Alternate contact number' => '98765432', //Replace with custom field
+   'company' => array(
+      'Name' => 'Example.com', //Replace with company name
+      'Website' => 'www.example.com' //Replace with website of company
+   )
+]));
+
+// Track an event
+\Freshworks::track()->event([
+    'identifier' => 'john.doe@example.com',
+    'name' => 'Test Event',
+    'role' => 'admin'
+]));
+
+// Track a page view
+\Freshworks::track()->pageview([
+   'identifier' => 'john.doe@example.com',
+   'url' => 'http://example.com/pricing'
+]));
 ```
 
 See [Freshworks CRM API](https://developers.freshworks.com/crm/api) documentation for details on what can be done with their API.
@@ -61,3 +89,4 @@ See [Freshworks CRM API](https://developers.freshworks.com/crm/api) documentatio
 - [Sales Activities](https://developers.freshworks.com/crm/api/#sales-activities)
 - [Search](https://developers.freshworks.com/crm/api/#search)
 - [Phone](https://developers.freshworks.com/crm/api/#phone)
+- [Track](https://teamamplitude.myfreshworks.com/crm/sales/settings/integrations/freshsales-web/3)

@@ -33,7 +33,7 @@ class Client extends \GuzzleHttp\Client
      * @param  array  $options
      * @return \CodeGreenCreative\Freshworks\Client
      */
-    public function go(string $method, $uri = '', array $options = []): Self
+    public function go(string $method, $uri = '', array $options = []): self
     {
         try {
             $this->response = parent::request($method, $uri, $options);

@@ -1,6 +1,6 @@
 {
     "name": "codegreencreative/laravel-freshworks",
-    "description": "",
+    "description": "A Laravel wrapper for Freshworks API",
     "keywords": ["laravel", "freshworks", "freshsales", "crm", "api"],
     "license": "MIT",
     "authors": [

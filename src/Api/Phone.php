@@ -13,8 +13,8 @@ class Phone extends Client
      * @param  array  $query [description]
      * @return [type]        [description]
      */
-    public function log(array $parameters = []): \CodeGreenCreative\Freshworks\Client
+    public function log(array $parameters = []): Object
     {
-        return $this->request('POST', $this->resource, ['body' => json_encode($parameters)]);
+        return $this->go('POST', $this->resource, ['body' => json_encode($parameters)]);
     }
 }

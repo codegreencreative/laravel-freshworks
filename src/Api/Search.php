@@ -13,8 +13,8 @@ class Search extends Client
      * @param  array  $query [description]
      * @return [type]        [description]
      */
-    public function lookup(array $query = []): \CodeGreenCreative\Freshworks\Client
+    public function lookup(array $query = []): Object
     {
-        return $this->request('GET', $this->resource, ['query' => $query]);
+        return $this->go('GET', $this->resource, ['query' => $query]);
     }
 }

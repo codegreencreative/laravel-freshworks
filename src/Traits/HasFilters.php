@@ -4,7 +4,7 @@ namespace CodeGreenCreative\Freshworks\Traits;
 
 trait HasFilters
 {
-    public function filters(): \CodeGreenCreative\Freshworks\Client
+    public function filters(): Object
     {
         return $this->go('GET', "{$this->resource}/filters");
     }

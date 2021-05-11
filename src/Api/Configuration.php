@@ -13,8 +13,8 @@ class Configuration extends Client
      * @param  array  $arguments [description]
      * @return [type]            [description]
      */
-    public function __call(string $name, array $arguments = []) \CodeGreenCreative\Freshworks\Client
+    public function __call(string $name, array $arguments = []): Object
     {
-        return $this->request('GET', 'selector/' . Str::snake($name));
+        return $this->go('GET', 'selector/' . Str::snake($name));
     }
 }

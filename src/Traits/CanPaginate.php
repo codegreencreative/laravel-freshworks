@@ -12,7 +12,7 @@ trait CanPaginate
      * @return [type]          [description]
      */
     // public function all($view_id, array $query = []): \CodeGreenCreative\Freshworks\Client
-    public function all(...$arguments): \CodeGreenCreative\Freshworks\Client
+    public function all(...$arguments): Object
     {
         if (is_array($arguments[0])) {
             return $this->go('GET', $this->resource, ['query' => $arguments[0]]);

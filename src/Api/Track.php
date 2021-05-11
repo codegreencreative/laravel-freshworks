@@ -13,13 +13,13 @@ class Track extends Client
         parent::__construct('track');
     }
 
-    public function identify(array $parameters)
+    public function identify(array $parameters): Object
     {
         $parameters['application_token'] = config('freshworks.token');
         return $this->go('POST', 'visitors', ['body' => json_encode($parameters)]);
     }
 
-    public function event(array $parameters)
+    public function event(array $parameters): Object
     {
         $parameters['application_token'] = config('freshworks.token');
         $parameters['event'] = [
@@ -30,7 +30,7 @@ class Track extends Client
         return $this->go('POST', 'events', ['body' => json_encode($parameters)]);
     }
 
-    public function pageview(array $parameters)
+    public function pageview(array $parameters): Object
     {
         $parameters['page_view']['url'] = $parameters['url'];
         $parameters['application_token'] = config('freshworks.token');

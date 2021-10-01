@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Response;
 
 class FreshworksException extends \Exception
 {
-    /** @var Response */
+    /** @var ?Response */
     protected $response;
 
     public static function fromGuzzleException(RequestException $requestException)
@@ -24,7 +24,7 @@ class FreshworksException extends \Exception
         return $exception;
     }
 
-    public function getResponse(): Response
+    public function getResponse(): ?Response
     {
         return $this->response;
     }

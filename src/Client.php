@@ -37,12 +37,14 @@ class Client
 
     /**
      * Go perform the request
-     * @param  string $method
-     * @param  string $uri
-     * @param  array  $options
+     *
+     * @param string $method
+     * @param string $uri
+     * @param array  $options
+     *
      * @return \CodeGreenCreative\Freshworks\Client
      */
-    public function go(string $method, $uri = '', array $options = []): Object
+    public function go(string $method, string $uri = '', array $options = []): object
     {
         try {
             $this->response = $this->client->request($method, $uri, $options);

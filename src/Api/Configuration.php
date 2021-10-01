@@ -8,12 +8,13 @@ use Illuminate\Support\Str;
 class Configuration extends Client
 {
     /**
-     * [__call description]
-     * @param  string $name      [description]
-     * @param  array  $arguments [description]
-     * @return [type]            [description]
+     * Get Selector configuration
+     *
+     * @see https://developers.freshworks.com/crm/api/#admin_configuration
+     *
+     * @param string $name Selector name
      */
-    public function __call(string $name, array $arguments = []): Object
+    public function selector(string $name): object
     {
         return $this->go('GET', 'selector/' . Str::snake($name));
     }

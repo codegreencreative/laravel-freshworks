@@ -2,10 +2,17 @@
 
 namespace CodeGreenCreative\Freshworks;
 
-use Psr\Http\Message\ResponseInterface;
+use CodeGreenCreative\Freshworks\Exceptions\FreshworksException;
+use Exception;
+use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Response;
 
-class Client extends \GuzzleHttp\Client
+class Client
 {
+    /** @var GuzzleClient */
+    protected $client;
+    /** @var Response */
     private $response;
 
     /**
@@ -17,12 +24,14 @@ class Client extends \GuzzleHttp\Client
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
         ];
-        if ($type == 'api') {
+
+        if ($type === 'api') {
             $headers['Authorization'] = "Token token=" . config('freshworks.api_key');
         }
-        parent::__construct([
+
+        $this->client = new GuzzleClient([
             'base_uri' => sprintf('https://%s.myfreshworks.com/crm/sales/%s/', config('freshworks.domain'), $type),
-            'headers' => $headers
+            'headers' => $headers,
         ]);
     }
 
@@ -36,9 +45,11 @@ class Client extends \GuzzleHttp\Client
     public function go(string $method, $uri = '', array $options = []): Object
     {
         try {
-            $this->response = parent::request($method, $uri, $options);
-        } catch (\Exception $e) {
-            throw new Exceptions\FreshworksException($e->getResponse()->getBody()->getContents(), 1);
+            $this->response = $this->client->request($method, $uri, $options);
+        } catch (RequestException $e) {
+            throw FreshworksException::fromGuzzleException($e);
+        } catch (Exception $e) {
+            throw new Exceptions\FreshworksException($e->getMessage(), $e->getCode());
         }
 
         return $this->toObject();

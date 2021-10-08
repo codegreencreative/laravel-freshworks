@@ -8,9 +8,9 @@ use GuzzleHttp\Psr7\Response;
 class FreshworksException extends \Exception
 {
     /** @var ?Response */
-    protected $response;
+    protected ?Response $response;
 
-    public static function fromGuzzleException(RequestException $requestException)
+    public static function fromGuzzleException(RequestException $requestException): self
     {
         $response = $requestException->getResponse();
 
@@ -18,7 +18,7 @@ class FreshworksException extends \Exception
             return new self($requestException->getMessage(), $requestException->getCode());
         }
 
-        $exception = new self((string) $response->getBody(), $response->getStatusCode());
+        $exception = new self(trim(sprintf("%s\n\%s", $requestException->getMessage(), (string) $response->getBody())), $response->getStatusCode());
         $exception->response = $response;
 
         return $exception;

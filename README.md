@@ -18,7 +18,9 @@ php artisan vendor:publish --tag="laravel-freshworks"
 
 ## Environment
 
-Add your Freshworks API key and domain. Your domain will be the subdomain you chose when creating yoour account. `{subdomain}`.myfreshworks.com
+Add your Freshworks API key and domain. 
+Your domain will be the subdomain you chose when creating your account. `{subdomain}`.myfreshworks.com
+You can gey your app token by going to Admin Settings -> CRM Code Library -> PHP and copying the `app_token` value.
 
 ```
 FRESHWORKS_API_KEY=
